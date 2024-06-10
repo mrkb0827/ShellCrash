@@ -1,7 +1,8 @@
 #! /bin/bash
 # Copyright (C) Juewuy
-
-[ -z "$url" ] && url="https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master"
+	#url change	#needmod	#need 增加CDN
+[ -z "$url" ] && url="https://fastly.jsdelivr.net/gh/mrkb0827/ShellCrash@master"
+	#modded
 type bash &>/dev/null && shtype=bash || shtype=sh 
 echo='echo -e' 
 [ -n "$(echo -e|grep e)" ] && {

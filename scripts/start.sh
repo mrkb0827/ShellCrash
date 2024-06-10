@@ -162,7 +162,9 @@ put_save(){ #推送面板选择
 }
 get_bin(){ #专用于项目内部文件的下载
 	source ${CRASHDIR}/configs/ShellCrash.cfg >/dev/null
-	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master
+#url change
+	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/mrkb0827/ShellCrash@master
+#modded
 	if [ -n "$url_id" ];then
 		[ -z "$release_type" ] && release_type=master
 		if [ "$url_id" = 101 -o "$url_id" = 104 ];then
@@ -1603,7 +1605,9 @@ singbox_check(){ #singbox启动前检查
 bfstart(){ #启动前
 	#读取ShellCrash配置
 	getconfig
-	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master
+#url change
+	[ -z "$update_url" ] && update_url=https://fastly.jsdelivr.net/gh/mrkb0827/ShellCrash@master
+#modded
 	[ ! -d ${BINDIR}/ui ] && mkdir -p ${BINDIR}/ui
 	[ -z "$crashcore" ] && crashcore=clash
 	#执行条件任务
@@ -1897,9 +1901,11 @@ webget)
 			getconfig
 			[ -n "$authentication" ] && auth="$authentication@"
 			export all_proxy="http://${auth}127.0.0.1:$mix_port"
-			url=$(echo $3 | sed 's#https://.*jsdelivr.net/gh/juewuy/ShellCrash[@|/]#https://raw.githubusercontent.com/juewuy/ShellCrash/#' | sed 's#https://gh.jwsc.eu.org/#https://raw.githubusercontent.com/juewuy/ShellCrash/#')
+#url change	#notice "gh.jwsc.eu.org"
+			url=$(echo $3 | sed 's#https://.*jsdelivr.net/gh/mrkb0827/ShellCrash[@|/]#https://raw.githubusercontent.com/mrkb0827/ShellCrash/#' | sed 's#https://gh.jwsc.eu.org/#https://raw.githubusercontent.com/mrkb0827/ShellCrash/#')
 		else
-			url=$(echo $3 | sed 's#https://raw.githubusercontent.com/juewuy/ShellCrash/#https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@#')
+			url=$(echo $3 | sed 's#https://raw.githubusercontent.com/mrkb0827/ShellCrash/#https://fastly.jsdelivr.net/gh/mrkb0827/ShellCrash@#')
+#modded
 		fi
 		#参数【$2】代表下载目录，【$3】代表在线地址
 		#参数【$4】代表输出显示，【$4】不启用重定向
